@@ -51,12 +51,24 @@ int main(int argc, char* argv[]){
   if (2 == atoi(argv[1])) {
       DepartArray* dpAry = new DepartArray();
       vector<int> num_vec = {1,5,11,5};
+      int num_in;
+      char ch_in;
+      cout << "please input numbers, end by any letter:";
+      num_vec.clear();
+      while (cin >> num_in) {
+	  cout << "num_in:" << num_in << endl;
+          num_vec.push_back(num_in);
+      }
+      for(auto& i:num_vec)
+	 cout << i << endl;
       
       bool flag = dpAry->IsDepartToArray(num_vec);      
       if (flag) 
 	 cout << "yes, depart array successful!" << endl;
       else
 	 cout << "no, depart array failed!" << endl;
+
+      delete dpAry;
   }
 
 }
